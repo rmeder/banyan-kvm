@@ -173,7 +173,7 @@ virt-install \
     --import \
     --graphics spice \
     --video qxl \
-    --boot uefi,loader="${FIRMWARE_DIR}${OVMF_CODE}",nvram_template="${FIRMWARE_DIR}${OVMF_VARS}" \
+    --boot uefi,loader="/usr/share/OVMF/OVMF_CODE.sw.dev.fd",nvram_template="/usr/share/OVMF/OVMF_VARS.sw.dev.fd" \
     --machine q35 \
     --console pty,target_type=serial \
     --watchdog i6300esb,action=reset \
