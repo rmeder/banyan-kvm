@@ -150,8 +150,8 @@ OVMF_CODE_PATH="${FIRMWARE_DIR}${OVMF_CODE}"
 OVMF_VARS_PATH="${FIRMWARE_DIR}${OVMF_VARS}"
 
 # Download firmware files
-download_if_missing "https://bentley.eng.sonicwall.com/SonicCore/SonicCoreX/artifacts-daily/SonicCoreX-banyan-connector-Developer/builds/16475-STAGING-soniccorex-banyan-connector-master/images/bsc-kvm/OVMF_CODE.sw.dev.fd" "/usr/share/OVMF/OVMF_CODE.sw.dev.fd"
-download_if_missing "https://bentley.eng.sonicwall.com/SonicCore/SonicCoreX/artifacts-daily/SonicCoreX-banyan-connector-Developer/builds/16475-STAGING-soniccorex-banyan-connector-master/images/bsc-kvm/OVMF_VARS.sw.dev.fd" "/usr/share/OVMF/OVMF_VARS.sw.dev.fd"
+download_if_missing "https://d235l73b1b38h0.cloudfront.net/bsc/OVMF_CODE.sw.dev.fd" "/usr/share/OVMF/OVMF_CODE.sw.dev.fd"
+download_if_missing "https://d235l73b1b38h0.cloudfront.net/bsc/OVMF_VARS.sw.dev.fd" "/usr/share/OVMF/OVMF_VARS.sw.dev.fd"
 #download_if_missing $OVMF_CODE_URL $OVMF_CODE_PATH
 #download_if_missing $OVMF_VARS_URL $OVMF_VARS_PATH
 download_if_missing $QCOW2_IMAGE_URL $QCOW2_IMAGE_PATH
