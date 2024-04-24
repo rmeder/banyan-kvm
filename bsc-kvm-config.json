@@ -1,13 +1,12 @@
 {
   "vm_name": "BSC-D16475",
-  "memory": "8192",
-  "cpus": "8",
-  "os_variant": "rhel9.0",
+  "memory": 8192,
+  "cpus": 8,
   "firmware_dir": "/usr/share/OVMF/",
   "ovmf_code": "OVMF_CODE.sw.dev.fd",
   "ovmf_vars": "OVMF_VARS.sw.dev.fd",
   "ovmf_base_url": "https://d235l73b1b38h0.cloudfront.net/bsc/",
-  s"qcow2_image_url": "https://d235l73b1b38h0.cloudfront.net/bsc/soniccorex-image-dev-bsc-kvm-D16475.wic.qcow2",
+  "qcow2_image_url": "https://d235l73b1b38h0.cloudfront.net/bsc/soniccorex-image-dev-bsc-kvm-D16475.wic.qcow2",
   "qcow2_image_path": "soniccorex-image-dev-bsc-kvm-D16475.wic.qcow2",
   "check_packages": true
 }
