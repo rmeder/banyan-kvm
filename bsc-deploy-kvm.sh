@@ -136,12 +136,12 @@ QCOW2_IMAGE_PATH=$(jq -r '.qcow2_image_path' $CONFIG_FILE)
 
 
 # Install custom firmware configuration and reload libvirtd
-install_firmware_config
+#install_firmware_config
 
 # Setup directories and source files
 # Create directories if they don't exist
-mkdir -p $FIRMWARE_DIR
-mkdir -p $(dirname $QCOW2_IMAGE_PATH)
+#mkdir -p $FIRMWARE_DIR
+#mkdir -p $(dirname $QCOW2_IMAGE_PATH)
 
 # Construct firmware URLs and paths
 OVMF_CODE_URL="${OVMF_BASE_URL}${OVMF_CODE}"
@@ -150,16 +150,16 @@ OVMF_CODE_PATH="${FIRMWARE_DIR}${OVMF_CODE}"
 OVMF_VARS_PATH="${FIRMWARE_DIR}${OVMF_VARS}"
 
 # Download firmware files
-download_if_missing "https://d235l73b1b38h0.cloudfront.net/bsc/OVMF_CODE.sw.dev.fd" "/usr/share/OVMF/OVMF_CODE.sw.dev.fd"
-download_if_missing "https://d235l73b1b38h0.cloudfront.net/bsc/OVMF_VARS.sw.dev.fd" "/usr/share/OVMF/OVMF_VARS.sw.dev.fd"
+#download_if_missing "https://d235l73b1b38h0.cloudfront.net/bsc/OVMF_CODE.sw.dev.fd" "/usr/share/OVMF/OVMF_CODE.sw.dev.fd"
+#download_if_missing "https://d235l73b1b38h0.cloudfront.net/bsc/OVMF_VARS.sw.dev.fd" "/usr/share/OVMF/OVMF_VARS.sw.dev.fd"
 #download_if_missing $OVMF_CODE_URL $OVMF_CODE_PATH
 #download_if_missing $OVMF_VARS_URL $OVMF_VARS_PATH
-download_if_missing $QCOW2_IMAGE_URL $QCOW2_IMAGE_PATH
+#download_if_missing $QCOW2_IMAGE_URL $QCOW2_IMAGE_PATH
 
 # Set permissions
-chmod 644 $OVMF_CODE_PATH
-chmod 644 $OVMF_VARS_PATH
-chmod 644 $QCOW2_IMAGE_PATH
+#chmod 644 $OVMF_CODE_PATH
+#chmod 644 $OVMF_VARS_PATH
+#chmod 644 $QCOW2_IMAGE_PATH
 
 # Verify everything is in place
 echo "All required files have been downloaded and placed correctly with proper permissions."
