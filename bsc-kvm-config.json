@@ -2,6 +2,7 @@
   "vm_name": "BSC-D16475",
   "memory": 8192,
   "cpus": 8,
+  "os_variant": "rhel9.0",
   "firmware_dir": "/usr/share/OVMF/",
   "ovmf_code": "OVMF_CODE.sw.dev.fd",
   "ovmf_vars": "OVMF_VARS.sw.dev.fd",
