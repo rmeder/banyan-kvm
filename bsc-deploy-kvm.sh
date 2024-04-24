@@ -109,7 +109,7 @@ download_if_missing() {
 
 
 # Determine the home directory and set configuration file path
-CONFIG_FILE="${HOME}/bsc-kvm-config.json"
+CONFIG_FILE="${HOME}/Downloads/rkm/banyan-kvm/bsc-kvm-config.json"
 
 # Check and install required packages
 #ensure_packages_installed
