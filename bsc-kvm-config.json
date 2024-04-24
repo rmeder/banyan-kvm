@@ -6,8 +6,8 @@
   "firmware_dir": "/usr/share/OVMF/",
   "ovmf_code": "OVMF_CODE.sw.dev.fd",
   "ovmf_vars": "OVMF_VARS.sw.dev.fd",
-  "ovmf_base_url": "http://172.16.100.80/r/bsc/",
-  "qcow2_image_url": "http://172.16.100.80/r/bsc/soniccorex-image-dev-bsc-kvm-D16475.wic.qcow2",
+  "ovmf_base_url": "https://bentley.eng.sonicwall.com/SonicCore/SonicCoreX/artifacts-daily/SonicCoreX-banyan-connector-Developer/builds/16475-STAGING-soniccorex-banyan-connector-master/images/bsc-kvm/",
+  "qcow2_image_url": "https://bentley.eng.sonicwall.com/SonicCore/SonicCoreX/artifacts-daily/SonicCoreX-banyan-connector-Developer/builds/16475-STAGING-soniccorex-banyan-connector-master/images/bsc-kvm/soniccorex-image-dev-bsc-kvm-D16475.wic.qcow2",
   "qcow2_image_path": "soniccorex-image-dev-bsc-kvm-D16475.wic.qcow2",
   "check_packages": true
 }
