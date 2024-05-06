@@ -172,10 +172,10 @@ virt-install \
     --os-variant $OS_VARIANT \
     --import \
     --graphics spice \
-    --video qxl \
-    --boot uefi,loader="/usr/share/OVMF/OVMF_CODE.sw.dev.fd",nvram_template="/usr/share/OVMF/OVMF_VARS.sw.dev.fd" \
+    --video virtio \
+    --boot loader="/usr/share/OVMF/OVMF_CODE.sw.dev.fd",loader.readonly=yes,loader.type=pflash \
     --machine q35 \
-    --console pty,target_type=serial \
+    --console pty \
     --watchdog i6300esb,action=reset \
     --print-xml > $VM_NAME.xml
 
