@@ -145,7 +145,7 @@ download_if_missing() {
 ensure_packages_installed
 
 # Install custom firmware configuration and reload libvirtd
-#install_firmware_config
+install_firmware_config
 
 # Setup directories and source files
 # Create directories if they don't exist
