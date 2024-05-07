@@ -69,9 +69,18 @@ ensure_packages_installed() {
 install_firmware_config() {
     local firmware_config_path="/etc/qemu/firmware/"
     local firmware_config_file="${firmware_config_path}10-sonicwall-x86_64-dev-enrolled.json"
-
-    # Create directory if it doesn't exist
-    sudo mkdir -p $firmware_config_path
+    # Check if the firmware config path exists, create if not
+    if [ ! -d $firmware_config_path ]; then
+        echo "Firmware config path not found."
+        read -p "Do you want to create the missing firmware config path ${firmware_config_path}? (y/n): " choice
+        if [[ $choice == "y" || $choice == "Y" ]]; then
+            echo "Creating firmware config path..."
+            sudo mkdir -p $firmware_config_path
+            echo "Firmware config path created."
+        else
+            echo "Creation aborted. Please create the firmware config path manually."
+        fi
+    fi
 
     # Check if the firmware config file exists, install if not
     if [ ! -f $firmware_config_file ]; then
