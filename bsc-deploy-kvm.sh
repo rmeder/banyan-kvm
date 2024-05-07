@@ -109,7 +109,7 @@ download_if_missing() {
 
 
 # Determine the home directory and set configuration file path
-CONFIG_FILE="${HOME}/Downloads/rkm/banyan-kvm/bsc-kvm-config.json"
+CONFIG_FILE="${HOME}/banyan-kvm/bsc-kvm-config.json"
 
 # Check and install required packages
 #ensure_packages_installed
@@ -159,7 +159,7 @@ OVMF_VARS_PATH="${FIRMWARE_DIR}${OVMF_VARS}"
 # Set permissions
 #chmod 644 $OVMF_CODE_PATH
 #chmod 644 $OVMF_VARS_PATH
-#chmod 644 $QCOW2_IMAGE_PATH
+chmod 644 $QCOW2_IMAGE_PATH
 
 # Verify everything is in place
 echo "All required files have been downloaded and placed correctly with proper permissions."
@@ -170,6 +170,7 @@ virt-install \
     --memory $MEMORY \
     --vcpus $CPUS \
     --os-variant $OS_VARIANT \
+    --disk $QCOW2_IMAGE_PATH \
     --import \
     --graphics spice \
     --video virtio \
