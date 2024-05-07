@@ -39,7 +39,7 @@ OVMF_CODE=$(jq -r '.ovmf_code' $CONFIG_FILE)
 OVMF_CODE=$(jq -r '.ovmf_vars' $CONFIG_FILE)
 CHECK_PACKAGES=$(jq -r '.check_packages' $CONFIG_FILE)
 QCOW2_IMAGE_URL=$(jq -r '.qcow2_image_url' $CONFIG_FILE)
-QCOW2_IMAGE_PATH=$(jq -r '.qcow2_image_path' $CONFIG_FILE)
+QCOW2_IMAGE_FNAME=$(jq -r '.qcow2_image_fname' $CONFIG_FILE)
 
 # Function to ensure required packages are installed
 ensure_packages_installed() {
@@ -133,8 +133,14 @@ EOF
 
 # Function to download files if they do not exist
 download_if_missing() {
+    echo "passed to the function..."
+    echo $1
+    echo $2
     local url=$1
     local path=$2
+    echo "local to funtion..."
+    echo $url
+    echo $path
     if [ ! -f "$2" ]; then
         echo "Downloading $1 to $2.."
         if curl -s --head "$1" >/dev/null; then
@@ -161,12 +167,10 @@ install_firmware_config
 #mkdir -p $FIRMWARE_DIR
 #mkdir -p $(dirname $QCOW2_IMAGE_PATH)
 
-#  Having issues with the passing the URL and path to the function, so I have hard coded them for now @TODO: Fix this
-# Construct firmware URLs and paths
-OVMF_CODE_URL="${OVMF_BASE_URL}${OVMF_CODE}"
-OVMF_VARS_URL="${OVMF_BASE_URL}${OVMF_VARS}"
-OVMF_CODE_PATH="${FIRMWARE_DIR}${OVMF_CODE}"
-OVMF_VARS_PATH="${FIRMWARE_DIR}${OVMF_VARS}"
+# Download OVMF_CODE file if it doesn't exist
+download_if_missing "$OVMF_CODE_URL" "/usr/share/OVMF/OVMF_CODE.sw.dev.fd"
+download_if_missing "$OVMF_VARS_URL" "/usr/share/OVMF/OVMF_VARS.sw.dev.fd"
+download_if_missing "$OVMF_VARS_URL" "/var/lib/libvirt/images/${QCOW2_IMAGE_FNAME}"
 
 # Download firmware files
 #download_if_missing "https://d235l73b1b38h0.cloudfront.net/bsc/OVMF_CODE.sw.dev.fd" "/usr/share/OVMF/OVMF_CODE.sw.dev.fd"
